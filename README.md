@@ -48,7 +48,7 @@ We conduct subjective assessment experiments on the VCD test dataset with 21 par
 ![score-fig](https://github.com/zhangkao/IIP_SalCrop/blob/main/figs/fig3.jpg)
 
 ## Demonstration:
-Taking a video and a target aspect ratio (default 9:16 for the demo) as inputs, SalCrop can automatically analyze the video content, develop an optimal cropping strategy, and generate a reframed output video. A demo is available at: [https://mme.tencent.com/smartcontent/videoCrop](https://mme.tencent.com/smartcontent/videoCrop) (access token: test_token). More demo videos can be found at [https://youtu.be/U5geNZq8pNo](https://youtu.be/U5geNZq8pNo).
+Taking a video and a target aspect ratio (default 9:16 for the demo) as inputs, SalCrop can automatically analyze the video content, develop an optimal cropping strategy, and generate a reframed output video. A demo is available at: [https://mme.tencent.com/smartcontent/videoCrop](https://mme.tencent.com/smartcontent/videoCrop) (access token: test_token). More demo videos can be found at [YouTube](https://youtu.be/U5geNZq8pNo) or [OneDrive](https://whueducn-my.sharepoint.com/:v:/g/personal/zhangkao_whu_edu_cn/EdWSevX5RL9AiQT8O9NQc-cBaXTkZLbYYwOBjNZ0dg8opA?e=TvZ6a6) (470M).
 
 
 
