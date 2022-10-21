@@ -40,11 +40,12 @@ Our SalCrop is implemented in Python 3.7 and Pytorch 1.5 environment with a sing
 ## Experiments:
 We conduct subjective assessment experiments on the VCD test dataset with 21 participants to compare our SalCrop with two state-of-the-art video cropping methods: [Google AutoFlip](https://opensource.googleblog.com/2020/02/autoflip-open-source-framework-for.html) and [Adobe AutoReframe](https://helpx.adobe.com/premiere-pro/using/auto-reframe.html). Different from video quality assessment, the subjective perception evaluation focuses on two main factors: content integrity and temporal consistency. A higher score should be assigned to the video that can fully express the main information of the original video, while the content is continuous and smooth in temporal dimension. Five-level scale is used for evaluation, in which numbers 1 to 5 are used to indicate the quality from bad to excellent. The cropped videos of these three methods are randomly shuffled and rated by the subjects. The comparison results are shown in Figure 3. Our SalCrop achieves better performance (3.9) than AutoFlip (2.6) and AutoReframe (3.4) with ultra-fast speed (about 200FPS ignoring  IO cost). In addition, the combination of sampling and interpolation operations can be used to further improve efficiency.
 
-![score-fig](https://github.com/zhangkao/IIP_SalCrop/blob/main/figs/fig3.jpg)
 
 **Result examples**: 
 [SalCrop](https://whueducn-my.sharepoint.com/:f:/g/personal/zhangkao_whu_edu_cn/EqdFgd8XLhpBu2rZFGUpThAB8WvsDo9ZQFgwEEqY7IDoSQ?e=NC3Axe) (113M), 
 
+
+![score-fig](https://github.com/zhangkao/IIP_SalCrop/blob/main/figs/fig3.jpg)
 
 ## Demonstration:
 Taking a video and a target aspect ratio (default 9:16 for the demo) as inputs, SalCrop can automatically analyze the video content, develop an optimal cropping strategy, and generate a reframed output video. A demo is available at: [https://mme.tencent.com/smartcontent/videoCrop](https://mme.tencent.com/smartcontent/videoCrop) (access token: test_token). More demo videos can be found at [https://youtu.be/U5geNZq8pNo](https://youtu.be/U5geNZq8pNo).
