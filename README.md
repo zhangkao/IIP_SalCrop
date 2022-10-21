@@ -26,7 +26,7 @@ The framework of SalCrop is shown in Figure 1. It contains four main modules:
 
 A large-scale video cropping dataset (VCD) is proposed, which consists of 300 videos with various categories and photographic styles selected from three public video saliency prediction datasets: [LEDOV](https://github.com/remega/LEDOV-eye-tracking-database), [AVS1K](http://cvteam.buaa.edu.cn/papers.html/), and [DIEM](https://thediemproject.wordpress.com/). There are five subsets, including 60 clips of animals, 100 clips of man-made objects, 110 clips of human beings, 10 clips of landscapes, and 20 clips of others. These videos vary in the number of frames and resolution. The dataset is divided into three parts randomly: 100 sequences for training, 50 sequences for validation and 50 sequences for testing.
 
-![VCD-fig](https://github.com/zhangkao/IIP_SalCrop/blob/main/figs/fig2.png)
+![VCD-fig](https://github.com/zhangkao/IIP_SalCrop/blob/main/figs/fig2.jpg)
 
 ## Implementation Details:
 Our SalCrop is implemented in Python 3.7 and Pytorch 1.5 environment with a single NVIDIA V100 GPU and 2.5 GHz Intel Xeon Platinum 8255C CPU. 
