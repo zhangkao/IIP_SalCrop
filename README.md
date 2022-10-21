@@ -28,14 +28,25 @@ A large-scale video cropping dataset (VCD) is proposed, which consists of 300 vi
 
 ![VCD-fig](https://github.com/zhangkao/IIP_SalCrop/blob/main/figs/fig2.jpg)
 
+[VCD-example](https://whueducn-my.sharepoint.com/:f:/g/personal/zhangkao_whu_edu_cn/Ei315pUtMclKr01tr3fQQ0UBRJ0-TVRF5M3Mk8GsoUvqyA?e=LBtbFJ) (530M)
+
 ## Implementation Details:
 Our SalCrop is implemented in Python 3.7 and Pytorch 1.5 environment with a single NVIDIA V100 GPU and 2.5 GHz Intel Xeon Platinum 8255C CPU. 
 
 ## Experiments:
 We conduct subjective assessment experiments on the VCD test dataset with 21 participants to compare our SalCrop with two methods: [Google AutoFlip](https://opensource.googleblog.com/2020/02/autoflip-open-source-framework-for.html) and [Adobe AutoReframe](https://helpx.adobe.com/premiere-pro/using/auto-reframe.html). Five-level scale is used for evaluation, in which numbers 1 to 5 are used to indicate the quality from bad to excellent. Our SalCrop achieves better performance (3.9) than AutoFlip (2.6) and AutoReframe (3.4) with ultra-fast speed (about 200FPS ignoring  IO cost). In addition, the combination of sampling and interpolation operations can be used to further improve efficiency.
 
+### **Results**
+
+**Results**: [ALL]() (xxG):
+
+[SalCrop]() (1.8GM), 
+[Adobe AutoReframe]() (707M)
+[Google AutoFlip]() (1.8GM), 
+
+
 ## Demonstration:
-Taking a video and a target aspect ratio (default 9:16 for the demo) as inputs, SalCrop can automatically analyze the video content, develop an optimal cropping strategy, and generate a reframed output video. More demo videos can be found at [https://youtu.be/U5geNZq8pNo](https://youtu.be/U5geNZq8pNo).
+Taking a video and a target aspect ratio (default 9:16 for the demo) as inputs, SalCrop can automatically analyze the video content, develop an optimal cropping strategy, and generate a reframed output video. A demo is available at: [https://mme.tencent.com/smartcontent/videoCrop](https://mme.tencent.com/smartcontent/videoCrop) (access token: test_token). More demo videos can be found at [https://youtu.be/U5geNZq8pNo](https://youtu.be/U5geNZq8pNo).
 
 
 
