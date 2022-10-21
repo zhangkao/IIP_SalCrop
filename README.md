@@ -33,7 +33,7 @@ A large-scale video cropping dataset (VCD) is proposed, which consists of 300 vi
 
 ![VCD-fig](https://github.com/zhangkao/IIP_SalCrop/blob/main/figs/fig2.jpg)
 
-## Implementation Details:
+## Environment:
 Our SalCrop is implemented in Python 3.7 and Pytorch 1.5 environment with a single NVIDIA V100 GPU and 2.5 GHz Intel Xeon Platinum 8255C CPU. 
 
 ## Experiments:
