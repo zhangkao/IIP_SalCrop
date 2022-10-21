@@ -18,7 +18,7 @@ The framework of SalCrop is shown in Figure 1. It contains four main modules:
 * **Adaptive Cropping module**, which can automatically choose an optimal cropping strategy to reframe videos with continuous and steady viewpoint, depending on the distribution of salient targets/regions in different frames; 
 * **Video Codec module** for video encoding and decoding.
 
-![SalCrop-fig](https://raw.githubusercontent.com/zhangkao/IIP_SalCrop/main/figs/fig1.jpg)
+![SalCrop-fig](https://raw.githubusercontent.com/zhangkao/IIP_SalCrop/main/figs/fig11.jpg)
 
 ## Implementation Details and Results
 
