@@ -1,63 +1,42 @@
-# IIP_UAVSal_Saliency
+# IIP_SalCrop
 
-It is a re-implementation code for the UAVSal model. 
+SalCrop: Spatio-temporal Saliency Based Video Cropping
 
 Related Project
-* Kao Zhang, Zhenzhong Chen, Shan Liu. A Spatial-Temporal Recurrent Neural Network for Video Saliency Prediction. IEEE Transactions on Image Processing (TIP), vol. 30, pp. 572-587, 2021. <br />
-Github: https://github.com/zhangkao/IIP_STRNN_Saliency
-
 * Kao Zhang, Zhenzhong Chen. Video Saliency Prediction Based on Spatial-Temporal Two-Stream Network. IEEE Transactions on Circuits and Systems for Video Technology (TCSVT), vol. 29, no. 12, pp. 3544-3557, 2019. <br />
 Github: https://github.com/zhangkao/IIP_TwoS_Saliency
 
-
-## Installation 
-### Environment:
-The code was developed using Python 3.6+ & pytorch 1.4+ & CUDA 10.0+. There may be a problem related to software versions.
-* Windows10/11 or Ubuntu20.04
-* Anaconda latest, Python 
-* CUDA, CUDNN
-
-### Python requirements
-You can try to create a new environment in anaconda, as follows
-
-    *For GEFORCE RTX 10 series, such as GTX1080, xp, etc. (Pytorch 1.4.0~1.7.1, python=3.6~3.8)
-
-        conda create -n uavsal python=3.8
-        conda activate uavsal
-        conda install pytorch==1.4.0 torchvision==0.5.0 cudatoolkit=10.1 -c pytorch
-        pip install numpy hdf5storage h5py==2.10.0 scipy matplotlib opencv-python scikit-image torchsummary
-
-    *For GEFORCE RTX 30 series, such as RTX3060, 3080, etc.
-        
-        conda create -n uavsal python=3.7
-        conda activate uavsal
-        conda install pytorch==1.7.1 torchvision==0.8.2 torchaudio==0.7.2 cudatoolkit=11.0 -c pytorch
-        pip install numpy hdf5storage h5py==2.10.0 scipy matplotlib opencv-python scikit-image torchsummary
+## Abstract
+Video cropping is a key research task in video processing field. In this paper, a spatio-temporal saliency based video cropping framework (SalCrop) is introduced including four core modules: video scene detection module, video saliency prediction module, adaptive cropping module, and video codec module. It can automatically reframe videos in the desired aspect ratios. In addition, a large-scale video cropping dataset (VCD) is built for training and testing. Experiments on the VCD test dataset show that our SalCrop outperforms the state-of-the-art algorithms with high efficiency. Besides, a FFmpeg video filter is developed based on the framework, which can be widely used in different scenarios. A demo is available at: [https://mme.tencent.com/smartcontent/videoCrop](https://mme.tencent.com/smartcontent/videoCrop) (access token: test_token).
 
 
-### Pre-trained models
-Download the pre-trained models and put the pre-trained model into the "weights" file.
+## System Overview 
+The framework of SalCrop is shown in Figure 1. It contains four main modules:
 
-* **UAVSal-UAV2** 
-[OneDrive](https://whueducn-my.sharepoint.com/:u:/g/personal/zhangkao_whu_edu_cn/ERHo7kkmKjlEmbw7p8zQ1BUBn54i6jn6dabTkzkwNO50FA?e=7PWhjB) (52M)
-* **UAVSal-AVS1K** 
-[OneDrive](https://whueducn-my.sharepoint.com/:u:/g/personal/zhangkao_whu_edu_cn/ERJkGY-zClhBpEqgOixdTNcBhF6EYnJPGvKUlhcflxttcg?e=PaIycZ) (52M)
+* **Video Scene Detection module**, in which long videos are automatically split into short sequences with consecutive shots based on key frames;
+* **Video Saliency Prediction module**, in which a lightweight two-stream network is proposed to find salient content in the frames;
+* **Adaptive Cropping module**, which can automatically choose an optimal cropping strategy to reframe videos with continuous and steady viewpoint, depending on the distribution of salient targets/regions in different frames; 
+* **Video Codec module** for video encoding and decoding.
 
-### Train and Test
+![SalCrop-fig](https://github.com/zhangkao/IIP_SalCrop/tree/master/figs/fig1.png)
 
-**The parameters**
+## Implementation Details and Results
 
-* Please change the working directory: "dataDir" to your path in the "Demo_Test.py" and "Demo_Train_Test.py" files, like:
+**Dataset：** 
 
-        dataDir = '/home/name/DataSet/'
-        
-* More parameters are in the "train" and "test" functions.
-* Run the demo "Demo_Test.py" and "Demo_Train_Test.py" to test or train the model.
+A large-scale video cropping dataset (VCD) is proposed, which consists of 300 videos with various categories and photographic styles selected from three public video saliency prediction datasets: [LEDOV](https://github.com/remega/LEDOV-eye-tracking-database), [AVS1K](http://cvteam.buaa.edu.cn/papers.html/), and [DIEM](https://thediemproject.wordpress.com/). There are five subsets, including 60 clips of animals, 100 clips of man-made objects, 110 clips of human beings, 10 clips of landscapes, and 20 clips of others. These videos vary in the number of frames and resolution. The dataset is divided into three parts randomly: 100 sequences for training, 50 sequences for validation and 50 sequences for testing.
 
-**The full training process:**
+![VCD-fig](https://github.com/zhangkao/IIP_SalCrop/tree/master/figs/fig2.png)
 
+## Implementation Details:
+Our SalCrop is implemented in Python 3.7 and Pytorch 1.5 environment with a single NVIDIA V100 GPU and 2.5 GHz Intel Xeon Platinum 8255C CPU. 
 
-* We initialize the SRF-Net with the pretrained MobileNet V2 and fine-tune the model on SALICON dataset. Then we train the whole model on EyeTrackUAV2  and AVS1K, respectively.
+## Experiments:
+We conduct subjective assessment experiments on the VCD test dataset with 21 participants to compare our SalCrop with two methods: Google AutoFlip \cite{Frey20AutoFlip} and Adobe AutoReframe \cite{Adobe22Automatically}. Five-level scale is used for evaluation, in which numbers 1 to 5 are used to indicate the quality from bad to excellent. Our SalCrop achieves better performance (3.9) than AutoFlip (2.6) and AutoReframe (3.4) with ultra-fast speed (about 200FPS ignoring  IO cost). In addition, the combination of sampling and interpolation operations can be used to further improve efficiency.
+
+## Demonstration:
+Taking a video and a target aspect ratio (default 9:16 for the demo) as inputs, SalCrop can automatically analyze the video content, develop an optimal cropping strategy, and generate a reframed output video. More demo videos can be found at [https://youtu.be/U5geNZq8pNo](https://youtu.be/U5geNZq8pNo).
+
 
 **The training and testing datasets:**
 
