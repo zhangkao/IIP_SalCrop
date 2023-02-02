@@ -52,6 +52,7 @@ Taking a video and a target aspect ratio (default 9:16 for the demo) as inputs, 
 
 ## Acknowledgments
 The first phase of this work was supported in part by Tencent.
+
 The second phase of this work was supported in part by National Natural Science Foundation of China under contract No. 62201404 and No. 62036005, China Postdoctoral Science Foundation under contract No. 2021M692463, Postdoctoral Innovative Research Position Funding of Hubei Province of China, LIESMARS Special Research Funding, and Tencent.
 
 ## Paper & Citation
@@ -64,8 +65,9 @@ If you use the UAVSal video saliency model, please cite the following paper:
   booktitle={IEEE International Conference on Visual Communications and Image Processing (VCIP) demo paper},
   year={2022}
 }
-```
+
 Kao Zhang and Yan Shang are co-first authors.
+```
 
 
 ## Contact
