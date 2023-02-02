@@ -65,10 +65,8 @@ If you use the UAVSal video saliency model, please cite the following paper:
   booktitle={IEEE International Conference on Visual Communications and Image Processing (VCIP) demo paper},
   year={2022}
 }
-
-Kao Zhang and Yan Shang are co-first authors.
 ```
-
+Kao Zhang and Yan Shang are co-first authors.
 
 ## Contact
 Kao ZHANG  <br />
